@@ -5,6 +5,8 @@ import { MdLogout } from 'react-icons/md';
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 import { AuthContext } from '../../context/auth';
 import skillsService from "../../services/requests/skillsService";
@@ -107,8 +109,20 @@ const Header: React.FC = () => {
        userSkillsService
        .create(skillPost)
        .then((res) => {
-           closeModal()
-           refreshPage()
+        toast.success(`👌👌 Skill ${selectedSkill?.label} adicionada ao usuario `, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+          setTimeout(() => {
+            closeModal();
+            refreshPage();
+          }, 2000); // tempinho para aparecer o toastify
        });
       }else { 
         navigate("/signin")
@@ -117,7 +131,8 @@ const Header: React.FC = () => {
   
 
     return(
-        <Container>
+       <> 
+       <Container>
         <DivLogo>
             <img src="https://neki-it.com.br/wp-content/uploads/2022/01/Logo-Neki.png" alt="Logo Neki" />
             <span>SKILLS</span>
@@ -168,8 +183,10 @@ const Header: React.FC = () => {
 
         </DivLogout>
         
-        
+       
     </Container>
+    <ToastContainer />
+    </>
 
     )
 }

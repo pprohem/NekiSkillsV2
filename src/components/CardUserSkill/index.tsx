@@ -122,7 +122,7 @@ export function CardUserSkill ({cardProps, handleDelete} : CardProps ) {
                 </ModalDiv>
             </Modal>
             {!cardProps?.length ? (
-                <Loader />
+                 <Loader />
             ) : ( 
                 cardProps?.map((card)=> (
                     <CardSkills key={card.id}>
