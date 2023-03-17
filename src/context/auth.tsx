@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api, loginUser } from "../services/api";
 
+
 type AuthContextType = {
   authenticated: boolean;
   login: (

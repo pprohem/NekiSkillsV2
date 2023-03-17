@@ -30,6 +30,10 @@ export const DivContent = styled.div `
         margin: 10px;
     }
 
+    @media(max-width: 768px) {
+        width: 90%;
+    }
+
 `
 
 
@@ -61,6 +65,10 @@ export const Input = styled.input `
 
   :hover { 
     outline: 1px solid lightgrey; 
+  }
+
+  @media(max-width: 768px) {
+     width: 350px;
   }
 
 `
@@ -104,6 +112,10 @@ export const ButtonSubmit = styled.button `
     :active { 
         transform: translateY(-1px);
     }
+    @media(max-width: 768px) {
+     margin-left: 50px;
+  }
+
 `
 
 export const HeaderSignUp = styled.header ` 

@@ -66,7 +66,7 @@ export function LoginPage () {
          name="lsRememberMe"
          onClick= {() => setIsChecked(true)}
        />
-        <label>LEMBRE ME</label>
+        <label>MANTENHA ME CONECTADO</label>
 
       <Button  onClick={handleLogin}>
         SIGN IN 

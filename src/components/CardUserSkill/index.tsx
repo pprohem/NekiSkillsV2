@@ -26,12 +26,6 @@ cardProps : CardContent[];
 handleDelete: (id: number) => void;
 }
 
-
-
-
-
-
-
 export function CardUserSkill ({cardProps, handleDelete} : CardProps ) { 
    
    const [modalIsOpen, setIsOpen] = useState(false);
@@ -39,7 +33,8 @@ export function CardUserSkill ({cardProps, handleDelete} : CardProps ) {
    const [nameSkill, setNameSkill] = useState("")
    const [skillIdTemp, setSkillIdTemp] = useState(0);
    const [userSkillID, setUserSkillID] = useState(0);
-   const [newLevel, setNewLevel] = useState<number|string>(); 
+   const [newLevel, setNewLevel] = useState<number|string>(0); 
+   const [mensagem, setMensagem] = useState ("")
    const customStyles = {
     content: {
         top: '50%',
@@ -84,6 +79,10 @@ export function CardUserSkill ({cardProps, handleDelete} : CardProps ) {
             }
         };
 
+        if(newLevel <= 0 || newLevel > 10 ) { 
+            setMensagem("O nivel de conhecimento deve estar entre 1 e 10.")
+            return; 
+        }
         userSkillsService
         .update(userSkillID, data)
         .then((res) => { 
@@ -118,7 +117,7 @@ export function CardUserSkill ({cardProps, handleDelete} : CardProps ) {
                     <label>Novo nível:</label>
                     <Input type="number"  onChange={e => setNewLevel (e.target.value)}/>
                     
-
+                    <h4>{mensagem}</h4>
                     <ButtonSubmit onClick={handleUpdate}>ATUALIZAR</ButtonSubmit>
                 </ModalDiv>
             </Modal>

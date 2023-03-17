@@ -5,19 +5,29 @@ export const Container = styled.div `
     background-image: url(https://coodesh.com/blog/wp-content/uploads/2021/11/Artigo-144-1536x864.jpg) ;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   
+    @media (max-width: 768px) { 
+        
+    align-items: center;
+    justify-content: center;
+    }
+
+    
 
 `
 
 
 export const DivInfos = styled.div `
     background-color: #cccccc;
+    border: 0.3px solid black;
     width: 25%;
     height: 60%;
     border-radius: 25px;
-    position: absolute;
-    right: 80px;
-    bottom: 170px;
+    margin-bottom: 50px;
+    margin-right: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +46,11 @@ export const DivInfos = styled.div `
     h5{
         font-family: 'Roboto', 'sans-serif';
     }
-
+ 
+    @media (max-width: 768px) { 
+        width: 90%;
+        margin: 0;
+    }
 
 `
 

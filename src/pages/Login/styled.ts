@@ -13,6 +13,9 @@ export const Container = styled.div `
     align-items: center;
     display: flex;
     justify-content: center;
+ 
+  
+    
 `
 
 export const LoginContainer = styled.div `
@@ -34,7 +37,7 @@ export const LoginContainer = styled.div `
       font-family: 'Roboto Flex', sans-serif;
     }
     @media screen and (max-width: 768px){
-        width: 60vw
+        width: 90vw
     
     }
 `
@@ -197,6 +200,10 @@ export const Inputs = styled.input `
     outline: 1px solid lightgrey; 
   }
 
+  @media( max-width: 768px ) { 
+    width: 250px;
+  }
+ 
 `
 
 export const PassDiv = styled.div `
