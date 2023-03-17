@@ -19,6 +19,25 @@ export function Router() {
       };
     const {persistedLogin}= useContext(AuthContext)
   
+    const CacheTime = ({ children }: any): JSX.Element => {
+
+        const cacheTime = localStorage.getItem('cacheTime');
+        if (cacheTime) {
+          const dateNow = Math.floor(Date.now() / 1000);
+          const cacheTimestamp = parseInt(cacheTime); 
+      
+          if (dateNow >= cacheTimestamp) {
+            localStorage.removeItem("user");
+            localStorage.removeItem("cacheTime");
+            localStorage.removeItem("token")
+            return <Navigate to="/signin" />;
+          } else {
+            return <>{children}</>;
+          }
+        }
+      
+        return <Navigate to="/signin" />
+      };
         
     
             return( 
@@ -27,9 +46,11 @@ export function Router() {
                     <Route path='/signin' element={<LoginPage/>}> </Route>
                     <Route path='/signup' element={<SignUpPage/>}> </Route>
                     <Route path='/homepage' element={
+                  <CacheTime>
                     <IsLoggedIn>
                         <HomePage />
                     </IsLoggedIn>
+                  </CacheTime>
                     }/>
                 </Routes>
             );

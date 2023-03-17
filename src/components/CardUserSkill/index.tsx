@@ -4,6 +4,7 @@ import { TbPencilPlus } from 'react-icons/tb';
 import Modal from 'react-modal';
 import userSkillsService from '../../services/requests/userSkillService';
 import { Loader } from "../Loader";
+import SkillRating from '../SkillRating';
 import { ButtonSubmit, Card, CardSkills, IconButton, Input, ModalDiv } from "./styled";
 
 type CardContent = { 
@@ -128,9 +129,9 @@ export function CardUserSkill ({cardProps, handleDelete} : CardProps ) {
                     <CardSkills key={card.id}>
                     <Card>
                         
-                        <img src={card?.skill.imageUrl} alt="Logo Neki" />
-                        <span>{card?.skill.name}</span>
-                        <span>{card?.knowledgeLevel}</span>
+                        <img style={{marginBottom: 15}} src={card?.skill.imageUrl} alt="Logo Neki" />
+                        <span style={{marginBottom: 5}} >{card?.skill.name}</span>
+                        <SkillRating level ={card?.knowledgeLevel}/>
                         <span>{card?.skill.description}</span>
                         <span>{card?.skill.version}</span>
 

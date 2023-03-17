@@ -11,6 +11,7 @@ export function LoginPage () {
    const [passwordShown, setPasswordShown] = useState(false);
    const [password, setPassword] = useState("");
    const [username, setUsername] = useState("")
+   const [isChecked, setIsChecked] = useState(false)
    const navigate = useNavigate();
    
    const {login} = useContext(AuthContext);
@@ -22,11 +23,13 @@ export function LoginPage () {
 
     const handleLogin = async (event: any) => { 
       event.preventDefault();
-      await login(username, password)
-
+      await login(username, password, isChecked)
+      
       navigate("/homepage")
     }
-   
+    
+
+    
 
   
     
@@ -61,7 +64,7 @@ export function LoginPage () {
       <input id='inputcheck'
          type="checkbox"
          name="lsRememberMe"
-
+         onClick= {() => setIsChecked(true)}
        />
         <label>LEMBRE ME</label>
 

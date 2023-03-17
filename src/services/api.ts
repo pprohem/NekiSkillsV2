@@ -15,6 +15,9 @@ export const api = axios.create({
 export const api2 = axios.create({
   baseURL: "http://localhost:8080"
 })
+
+
+
 export const loginUser = async (username : string, password: string) => {
     return api.post("/login", {username, password})
   };

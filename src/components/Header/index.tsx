@@ -16,13 +16,14 @@ interface Option {
 }
 const Header: React.FC = () => { 
 
-    const {logout} = useContext(AuthContext);
+    const {logout, getCache} = useContext(AuthContext);
     const navigate = useNavigate()
     const [modalIsOpen, setIsOpen] = useState (false)
     const [knowledgeLevel, setKnowledgeLevel] = useState<number | string>(1);
     const [selectedSkill, setSelectedSkill] = useState<Option|null>(null)
     const [mensagem, setMensagem] = useState<string>("")
     const [skill, setSkill] = useState()
+    
    
     const customStyles = {
         content: {
@@ -99,13 +100,19 @@ const Header: React.FC = () => {
           }
         
        };
- 
+       
+       const getCacheTemp = getCache()
+
+       if(getCacheTemp) { 
        userSkillsService
        .create(skillPost)
        .then((res) => {
            closeModal()
            refreshPage()
        });
+      }else { 
+        navigate("/signin")
+      }
     }};
   
 

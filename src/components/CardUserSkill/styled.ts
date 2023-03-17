@@ -2,12 +2,17 @@ import styled from "styled-components"
 
 export const CardSkills = styled.div ` 
  
- width: 190px;
- height: 254px;
+ width: 250px;
+ height: 284px;
  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
  border-radius: 20px;
  transition: all .3s;
  margin: 15px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ 
 
  :hover { 
     box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
@@ -15,8 +20,8 @@ export const CardSkills = styled.div `
 `
 export const Card = styled.div ` 
 
- width: 190px;
- height: 254px;
+ width: 250px;
+ height: 284px;
  background-color: #1a1a1a;
  transition: all .2s;
  border-radius: 5%;
@@ -32,7 +37,7 @@ export const Card = styled.div `
  }
 
  img{ 
-    height: 100px;
+    height: 80px;
  }
 
  :hover { 
